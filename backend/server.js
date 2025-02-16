@@ -18,7 +18,9 @@ app.use(cors({
   origin: [
     'http://localhost:3000',
     'https://www.panacea-tech.com',
-    'https://panacea-tech.com'
+    'https://panacea-tech.com',
+    'http://www.panacea-tech.com',
+    'http://panacea-tech.com'
   ]
 }));
 app.use(express.json());
