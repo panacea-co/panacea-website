@@ -21,7 +21,10 @@ app.use(cors({
     'https://panacea-tech.com',
     'http://www.panacea-tech.com',
     'http://panacea-tech.com'
-  ]
+  ],
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
 app.use(express.json());
 
