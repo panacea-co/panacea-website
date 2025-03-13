@@ -32,19 +32,15 @@ function App() {
 
   return (
     <div className="app">
-      <div className="gradient-blob blob-1"></div>
-      <div className="gradient-blob blob-2"></div>
-      <div className="gradient-blob blob-3"></div>
-      
       <nav className="navbar">
       <div className="logo">
           <img src={logo} alt="Panacea Logo" className="footer-logo" />
           <span>panacea</span>
         </div>
-        <div className="nav-links">
+        {/* <div className="nav-links">
           <a href="#who">Who are we?</a>
           <a href="#features">Features</a>
-        </div>
+        </div> */}
       </nav>
 
       <section className="hero">
@@ -52,7 +48,11 @@ function App() {
           Empowering cancer patients to find<br />
           the <span className="emphasis">right support</span> at the <span className="emphasis">right time</span>
         </h1>
+        <h2 className="subheading">
+        <em>Your Story Matters.</em> Panacea listens, learns, and guides you toward <em>better survivorship care</em>.
+        </h2>
         
+        <h3 className="waitlist-heading">Join the Waitlist – Be the First to Access Panacea:</h3>
         <form onSubmit={handleSubmit} className="waitlist-form">
           <input 
             type="email" 
@@ -65,44 +65,35 @@ function App() {
             {status === 'submitting' ? '...' : '→'}
           </button>
         </form>
+        {/* Add the arrow here */}
+        <div className="scroll-arrow">
+          <span>↓</span>
+        </div>
       </section>
 
       <section className="problem">
-        <h2>The Problem ↓</h2>
+        <h2>The Problem</h2>
         <p>
-          From diagnosis to survivorship, the journey through cancer is 
-          unexpected, confusing, and extremely lonely. There exists a significant 
-          disconnect between clinical cancer care and the practical knowledge and 
-          resources necessary for patients to take care of themselves outside the 
-          hospital...
+          <strong>From diagnosis to survivorship, the journey through cancer is unexpected, confusing, and extremely lonely.</strong> There exists a significant disconnect between clinical cancer care and the practical knowledge and resources necessary for patients to take care of themselves outside the hospital. Healthcare providers are often constrained by time to address the numerous quality-of-life challenges patients face after treatment. This results in patients being unaware of valuable resources, financial assistance programs, and evidence-based solutions that could significantly improve their healing journey.
         </p>
       </section>
 
       <section className="solution">
-        <h2>↓ Our Solution</h2>
+        <h2>Our Solution</h2>
         <p>
-          Panacea empowers cancer patients in asking the right questions, finding 
-          the right resources, and meeting the right people to support their health 
-          journey...
+          <strong>Panacea</strong> is a <strong>Personal Health Navigator</strong>, connecting cancer patients with the <strong>right resources</strong> at the <strong>right time</strong>. Find <strong>support groups</strong>, <strong>financial aid</strong>, <strong>clinical trials</strong>, and <strong>wellness programs</strong> tailored to your journey.
         </p>
-      </section>
-
-      <section className="offerings">
-        <h2>What we offer:</h2>
-        <div className="offer-list">
-          <div className="offer-item">wow this is great</div>
-          <div className="offer-item">this is super duper cool</div>
-          <div className="offer-item">woahhhhh</div>
-          <div className="offer-item">what a great list</div>
-        </div>
+        
       </section>
 
       <footer>
-        <div className="logo">
+        <div className="logo" style={{ justifyContent: 'center' }}>
           <img src={logo} alt="Panacea Logo" className="footer-logo" />
           <span>panacea</span>
         </div>
-        
+        <div className="contact-info">
+          <a href="mailto:nicolewu@utexas.edu">nicolewu@utexas.edu</a>
+        </div>
       </footer>
     </div>
   );
