@@ -38,17 +38,19 @@ app.post('/api/waitlist', async (req, res) => {
   try {
     const { email } = req.body;
     
-    // Check if email already exists
-    const existingEmail = await Waitlist.findOne({ email });
+    // Run these operations in parallel
+    const [existingEmail] = await Promise.all([
+      Waitlist.findOne({ email }).lean(), // .lean() for faster queries
+    ]);
+
     if (existingEmail) {
       return res.status(400).json({ 
         message: 'This email is already on our waitlist!' 
       });
     }
 
-    // Create new waitlist entry
-    const waitlistEntry = new Waitlist({ email });
-    await waitlistEntry.save();
+    // Create and save in one operation
+    await Waitlist.create({ email });
 
     res.status(201).json({ 
       message: 'Successfully added to waitlist!' 
