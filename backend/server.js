@@ -25,6 +25,7 @@ app.use(
       "https://apovohealth.com",
       "http://apovohealth.com",
       "apovohealth.com",
+      "http://panacea-tech.com.s3-website-us-east-1.amazonaws.com",
     ],
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type", "Authorization"],
