@@ -11,7 +11,7 @@ mongoose
   .catch((err) => console.error("Error connecting to MongoDB:", err));
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
 // Middleware
 app.use(
