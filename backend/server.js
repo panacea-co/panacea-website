@@ -35,7 +35,7 @@ app.use(
 app.use(express.json());
 
 // Basic route
-app.get("/api/test", (req, res) => {
+app.get("/test", (req, res) => {
   res.json({ message: "Backend is working!" });
 });
 
@@ -49,7 +49,7 @@ app.get("/health", (req, res) => {
 });
 
 // Add this new endpoint
-app.post("/api/waitlist", async (req, res) => {
+app.post("/waitlist", async (req, res) => {
   try {
     const { name, phone, email } = req.body;
 
