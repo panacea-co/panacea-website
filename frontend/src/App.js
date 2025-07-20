@@ -15,24 +15,37 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    let error;
     try {
       setStatus("submitting");
-      const response = await axios.post(`${API_URL}/api/waitlist`, {
-        name: name,
-        phone: phone,
-        email: email,
+      const response = await fetch(`${API_URL}/api/waitlist`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name,
+          phone: phone,
+          email: email,
+        }),
       });
 
-      setStatus("success");
-      setName(""); // Clear the input
-      setPhone(""); // Clear the input
-      setEmail(""); // Clear the input
-      alert("Thank you for joining our waitlist!");
-    } catch (error) {
-      setStatus("error");
-      console.error("Error submitting email:", error);
-      alert("Something went wrong. Please try again.");
+      if (response.ok) {
+        setStatus("success");
+        setName(""); // Clear the input
+        setPhone(""); // Clear the input
+        setEmail(""); // Clear the input
+        alert("Thank you for joining our waitlist!");
+        return;
+      } else {
+        error = response.text();
+      }
+    } catch (err) {
+      error = err;
     }
+    setStatus("error");
+    console.error("Error submitting email:", error);
+    alert("Something went wrong. Please try again.");
   };
 
   return (
